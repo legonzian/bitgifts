@@ -1,0 +1,30 @@
+{
+    // Use IntelliSense to learn about possible Node.js debug attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "debug react",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost/3000",
+            "webRoot": "${workspaceRoot}/public"
+        },
+        {
+            "name": "Attach",
+            "type": "chrome",
+            "request": "attach",
+            "port": 3000,
+            "url": "<url of the open browser tab to connect to>",
+            "webRoot": "${workspaceRoot}/public"
+        },
+        {
+            "type": "node",
+            "request": "attach",
+            "name": "An den Port anfügen",
+            "address": "localhost",
+            "port": 3000
+        }
+    ]
+}
