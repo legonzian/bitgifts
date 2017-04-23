@@ -8,9 +8,9 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 import { red500, green500 } from 'material-ui/styles/colors';
 
-const accesKey = 'AKIAIB4BQU4LLLXE7MPA';
-const secretKey = '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';
-const associateId = 'fenst0d-21';
+const accesKey = '';
+const secretKey = '';
+const associateId = '';
 
 const styles = {
     btn: {
