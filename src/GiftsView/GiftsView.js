@@ -1,16 +1,7 @@
 import React, { Component } from 'react'
-import Amazon from 'amazon-product-api'
-import Aws from 'aws-lib'
-import Apac from 'apac'
-
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-
 import { red500, green500 } from 'material-ui/styles/colors';
-
-const accesKey = '';
-const secretKey = '';
-const associateId = '';
 
 const styles = {
     btn: {
@@ -43,58 +34,15 @@ export default class GiftsView extends Component {
 
     _onSubmit = (event) => {
         if (this.state.valid) {
-            // var headers = new Headers({
-            //     'Access-Control-Allow-Origin': '*',
-            //     'Content-Type': 'text/xml'
-            // });
-            // fetch('http://webservices.amazon.de/onca/xml?AWSAccessKeyId=AKIAIB4BQU4LLLXE7MPA&AssociateTag=fenst0d-21&Keywords=harry%20potter&Operation=ItemSearch&SearchIndex=Books&Service=AWSECommerceService&Timestamp=2017-04-21T19%3A53%3A20.000Z&Version=2011-08-01&Signature=kL6Fq1OvXMx4pHi127r88QJWHsODsTmS0bD8UhwXiTU%3D', {
-            //     method: 'GET',
-            // }).then((response) => response.json()).then(
-            //     (response) => {
-            //         debugger;
-            //     });
-
-            var amazon = Amazon.createClient({
-                awsId: accesKey,
-                awsSecret: secretKey,
-                awsTag: associateId
-            })
-
-            var aws = Aws.createProdAdvClient(accesKey, secretKey, associateId, { host: 'webservices.amazon.de'})
-
-            var apac = new Apac.OperationHelper({
-                awsId: accesKey,
-                awsSecret: secretKey,
-                assocId: associateId,
-                locale: 'DE'
-            })
-
-            amazon.itemSearch({
-                director: 'Quentin Tarantino',
-                actor: 'Samuel L. Jackson',
-                searchIndex: 'DVD',
-                responseGroup: 'ItemAttributes,Offers,Images'
-            }).then(function (results) {
-                console.log(results);
-            }).catch(function (err) {
-                console.log(err);
+            var headers = new Headers({
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'text/xml'
             });
-
-            aws.call("ItemSearch", { SearchIndex: "Books", Keywords: "Javascript" }, function (err, result) {
-                console.log(JSON.stringify(result));
-            })
-
-            apac.execute('ItemSearch', {
-                'SearchIndex': 'Books',
-                'Keywords': 'harry potter',
-                'ResponseGroup': 'ItemAttributes,Offers'
-            }).then((response) => {
-                console.log("Results object: ", response.result);
-                console.log("Raw response body: ", response.responseBody);
-            }).catch((err) => {
-                console.error("Something went wrong! ", err);
-            });
-
+            fetch(`http://bitgiftsaws.azurewebsites.net/contacts/${this.state.asin}`, {
+            }).then((response) => response.json()).then(
+                (response) => {
+                    debugger;
+                });
 
             let gift = {
                 url: this.state.url,

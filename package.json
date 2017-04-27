@@ -2,10 +2,7 @@
   "name": "bitgift",
   "version": "0.1.0",
   "private": true,
-  "proxy": "www.fensterfly.de",
   "dependencies": {
-    "amazon-product-api": "^0.4.3",
-    "apac": "^3.0.2",
     "aws-lib": "^0.3.0",
     "material-ui": "^0.17.3",
     "react": "^15.5.4",
